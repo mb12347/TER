@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 # from data_loader import #nom fonction qui lit les données
 from physic_model import calcul_sigma_th
 from solver import descente_gradient

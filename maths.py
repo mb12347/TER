@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def S(sigma_exp, sigma_th_vals):
     return np.sum((sigma_exp - sigma_th_vals)**2)
 
