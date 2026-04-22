@@ -12,17 +12,18 @@ def grad_S(E_inf, E, tau, sigma_exp, sigma_th_vals, N, eps_0, t):
 
     # Calcul de dS/dEinf
     dS_dEinf = -2 * eps_0 * np.sum(diff)
-    grad.append(dS_dEinf)
 
     # Calcul des dS/dEi
+    grad_E = []
     for i in range(N):
         dS_dEi = -2 * eps_0 * np.sum(diff * np.exp(-t / tau[i]))
-        grad.append(dS_dEi)
+        grad_E.append(dS_dEi)
 
     # Calcul des dS/dtaui
+    grad_tau = []
     for i in range(N):
         dS_dtaui = -2 * eps_0 * np.sum(diff * E[i] * (t / tau[i]**2) * np.exp(-t / tau[i]))
-        grad.append(dS_dtaui)
+        grad_tau.append(dS_dtaui)
     
     # On renvoie le gradient
-    return np.array(grad)
+    return dS_dEinf, grad_E, grad_tau

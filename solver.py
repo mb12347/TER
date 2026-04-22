@@ -28,8 +28,8 @@ def descente_gradient(sigma_exp, t, N, eps_0, E_inf_init, E_init, tau_init, alph
     #Initialisation des paramètres d'entrées 
 
     E_inf = E_inf_init
-    E     = list(E_init)
-    tau   = list(tau_init)
+    E     = E_init
+    tau   = tau_init
     erreur = []
 
     iter = 0 
@@ -52,6 +52,6 @@ def descente_gradient(sigma_exp, t, N, eps_0, E_inf_init, E_init, tau_init, alph
         iter = iter + 1
 
     print("nb iter:  " , iter)
-    print("erreur à la dernier iter :  ", erreur[iter])
+    print("erreur à la dernier iter :  ", erreur[-1])
 
-    return E_inf, E, tau
+    return E_inf, E, tau, erreur
