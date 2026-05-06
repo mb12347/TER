@@ -33,7 +33,10 @@ def descente_gradient(sigma_exp, t, N, eps_0, E_inf_init, E_init, tau_init, alph
     erreur = []
 
     iter = 0 
-    for iteration in range(niter) :
+    cout = 0
+    last = 1
+    while np.abs(cout-last)>10e-6 :
+        last = cout
 
         #calcul du coût de cette itération 
         sigma_th = calcul_sigma_th(t, N, E, tau, eps_0, E_inf)
